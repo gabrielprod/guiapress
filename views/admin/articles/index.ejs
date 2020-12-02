@@ -1,0 +1,56 @@
+<%-include ('../../components/header.ejs');%>
+    <%-include ('../../components/navbar.ejs');%>
+
+        <div class="container">
+            <hr>
+            <h2>Artigos</h2>
+            <a class="btn btn-success" href="/admin/articles/new"> Criar novo artigo</a>
+            <hr>
+            <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Título</th>
+                        <th>Slug</th>
+                        <th>Categoria</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% articles.forEach(art => {%>
+                        <tr>
+                            <th>
+                                <%=art.id%>
+                            </th>
+                            <th>
+                                <%=art.title%>
+                            </th>
+                            <th>
+                                <%=art.slug%>
+                            </th>
+                            <th>
+                                <%=art.category.title%>
+                            </th>
+                            <th>
+                                <a href="/admin/articles/edit/<%= art.id%>" class="btn btn-warning mr-2 ml-3">Editar</a>
+                                <form method="POST" action="/articles/delete" style="display:inline" onsubmit="stopEvent(event,this)">
+                                    <input type="hidden" name="id" value=" <%= art.id%>">
+                                    <button class="btn btn-danger">Deletar</button>
+                                </form>
+                            </th>
+                        </tr>
+                        <%})%>
+                </tbody>
+            </table>
+
+        </div>
+        <%-include ('../../components/footer.ejs');%>
+            <script>
+                function stopEvent(event, form) {
+                    event.preventDefault()
+                    let decision = confirm("Voce realmente deseja excluir esse artigo ?")
+                    if (decision) {
+                        form.submit()
+                    }
+                }
+            </script>

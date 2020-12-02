@@ -1,0 +1,33 @@
+<%-include ('components/header.ejs');%>
+    <%-include ('components/navbarindex.ejs');%>
+
+        <body>
+            <div class="container mt-4">
+                <div class="jumbotron">
+                    <h1 class="display-4">Bem vindo!</h1>
+                    <p class="lead">Este é um simples blog de artigos .</p>
+                    <hr class="my-4">
+                    <p>Cadastre já seu artigo para que mais pessoas possam ver !.</p>
+
+                </div>
+                <% articles.forEach(art => {%>
+                    <div class="card mt-3">
+                        <div class="card-header">
+                            <h2>
+                                <%=art.title%>
+                            </h2>
+                        </div>
+                        <div class="card-body">
+                            <a href="/<%=art.slug%>" class="btn btn-success">Ler artigo</a>
+                        </div>
+                    </div>
+                    <%})%>
+
+                        <div class="row mt-4 mb-4">
+                            <div class="col col-12">
+                                <a href="/articles/page/2" style="float:right;">Next >></a>
+                            </div>
+                        </div>
+            </div>
+        </body>
+        <%-include ('components/footer.ejs');%>

@@ -1,0 +1,37 @@
+<%-include ('../../components/header.ejs');%>
+    <%-include ('../../components/navbarindex.ejs');%>
+
+        <body>
+            <div class="container mt-4">
+
+                <% result.articles.rows.forEach(art => {%>
+                    <div class="card mt-3">
+                        <div class="card-header">
+                            <h2>
+                                <%=art.title%>
+                            </h2>
+                        </div>
+                        <div class="card-body">
+                            <a href="/<%=art.slug%>" class="btn btn-success">Ler artigo</a>
+                        </div>
+                    </div>
+                    <%})%>
+                        <div class="row mt-4 mb-4">
+                            <div class="col col-12">
+                                <%if(result.page > 2){%>
+                                    <a href="/articles/page/<%= result.page - 1%>" style="float:left;">
+                                        << Prev </a>
+                                            <%}else if(result.page == 2) {%>
+                                                <a href="/" style="float:left;">
+                                                    << Prev </a>
+                                                        <%}%>
+
+
+                                                            <% if(result.next){%>
+                                                                <a href="/articles/page/<%= result.page + 1%>" style="float:right;">Next >></a>
+                                                                <%}%>
+                            </div>
+                        </div>
+            </div>
+        </body>
+        <%-include ('../../components/footer.ejs');%>

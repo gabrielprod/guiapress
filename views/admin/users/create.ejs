@@ -1,0 +1,21 @@
+<%-include ('../../components/header.ejs');%>
+    <%-include ('../../components/navbar.ejs');%>
+
+        <div class="container mt-3">
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h2>Criação de usuário</h2>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="/users/create">
+                        <input class="form-control mb-3" type="email" name="email" placeholder="email@example.com">
+                        <input class="form-control" type="password" name="password" placeholder="*******">
+                        <button class="btn btn-success btn-block mt-3">
+                            Criar
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <%-include ('../../components/footer.ejs');%>
