@@ -1,0 +1,18 @@
+<%-include ('components/header.ejs');%>
+    <%-include ('components/navbarindex.ejs');%>
+
+        <body>
+            <div class="container">
+                <div class="card mt-4">
+                    <div class="card-header">
+                        <h2>
+                            <%=article.title%>
+                        </h2>
+                    </div>
+                    <div class="card-body">
+                        <%- article.body%>
+                    </div>
+                </div>
+            </div>
+        </body>
+        <%-include ('components/footer.ejs');%>

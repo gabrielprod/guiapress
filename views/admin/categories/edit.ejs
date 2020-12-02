@@ -1,0 +1,20 @@
+<%-include ('../../components/header.ejs');%>
+    <%-include ('../../components/navbar.ejs');%>
+        <div class="container">
+            <hr>
+            <div class="card">
+                <div class="card-header">
+                    <h2>Edicao de categories</h2>
+                </div>
+                <div class="card-body">
+                    <!--metodo post necessita de um form-->
+                    <form method="POST" action="/categories/update">
+                        <input class="form-control" type="text" name="title" placeholder="Defina o título da categoria" value="<%= catg.title%>">
+                        <input type="hidden" name="id" value="<%= catg.id%>">
+                        <button class="btn btn-success mt-2">Atualizar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <%-include ('../../components/footer.ejs');%>

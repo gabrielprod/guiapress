@@ -1,0 +1,33 @@
+<%-include ('../../components/header.ejs');%>
+    <%-include ('../../components/navbar.ejs');%>
+
+        <div class="container">
+            <hr>
+            <h2>Categorias</h2>
+            <a class="btn btn-success" href="/admin/users/index"> Criar novo usuário </a>
+            <hr>
+            <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Email</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <% users.forEach(user => { %>
+                        <tr>
+                            <td>
+                                <%=user.id%>
+                            </td>
+                            <td>
+                                <%=user.email%>
+                            </td>
+                        </tr>
+                        <% }) %>
+                </tbody>
+            </table>
+
+        </div>
+
+        <%-include ('../../components/footer.ejs');%>
